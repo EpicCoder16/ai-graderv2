@@ -1,6 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 import logging
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -10,10 +11,10 @@ def get_connection():
     try:
         logger.info("Attempting to connect to MySQL database...")
         connection = mysql.connector.connect(
-            host="127.0.0.1",
-            user="ai_grader_user",
-            password="eshwar",
-            database="ai_grader",
+            host=os.getenv("MYSQL_HOST", "127.0.0.1"),  # Default to localhost if not set
+            user=os.getenv("MYSQL_USER", "ai_grader_user"),
+            password=os.getenv("MYSQL_PASSWORD", "eshwar"),
+            database=os.getenv("MYSQL_DATABASE", "ai_grader"),
             auth_plugin='mysql_native_password'
         )
         
