@@ -6,3 +6,4 @@ python-docx
 pdfplumber
 python-multipart
 bcrypt
+mysql-connector-python
