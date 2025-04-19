@@ -15,7 +15,7 @@ import logging
 app = FastAPI()
 
 # Mount the frontend directory at /static
-app.mount("/static", StaticFiles(directory="../frontend", html=True), name="frontend")
+# app.mount("/static", StaticFiles(directory="../frontend", html=True), name="frontend")
 
 # CORS configuration
 app.add_middleware(
